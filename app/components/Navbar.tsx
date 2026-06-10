@@ -21,15 +21,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   const locale = pathname.split("/")[1] || "en";
-const t =
-    translations[locale as keyof typeof translations] ??
-    translations.en;
+  const t = (translations[locale as keyof typeof translations] ?? translations.en) as typeof translations.en;
   const navClass =
     scrolled
       ? "bg-white/70 dark:bg-black/60 backdrop-blur-md shadow-md"
       : "bg-white dark:bg-black";
 
-  const links = [
+  const links: Array<{ label: keyof typeof translations.en; href: string }> = [
     { label: "home", href: "#" },
     { label: "features", href: "#features" },
     { label: "contact", href: "#contact" },
