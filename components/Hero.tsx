@@ -53,7 +53,7 @@ export default function Hero({ t }: { t: any }) {
             <div className="relative bg-black rounded-[40px] p-3 shadow-2xl">
 
               <Image
-                src="/app.png"
+                src="/screen-shot.webp"
                 alt="Riaytek app"
                 width={280}
                 height={600}
