@@ -43,7 +43,35 @@ export default function Hero({ t }: { t: any }) {
 
         {/* RIGHT MOCKUP */}
         <div className="flex justify-center">
+ <div className="relative">
 
+            {/* glow effect */}
+            <div className="absolute -inset-6 bg-[#08b096] opacity-20 blur-3xl rounded-full" />
+
+            {/* phone */}
+            <div className="relative bg-black rounded-[40px] p-3 shadow-2xl">
+
+               <Image
+                src="/app.webp"
+                alt="Riaytek app"
+                width={280}
+                height={600}
+                className="rounded-[32px]"
+              />
+             
+
+            </div>
+
+            {/* floating badge */}
+            <div className="absolute -top-6 -right-6 bg-white shadow-lg px-4 py-2 rounded-xl text-sm text-[#053769]">
+              💊 Reminders
+            </div>
+
+            <div className="absolute -bottom-6 -left-6 bg-white shadow-lg px-4 py-2 rounded-xl text-sm text-[#08b096]">
+              💧 Water tracking
+            </div>
+
+          </div>
           <div className="relative">
 
             {/* glow effect */}
@@ -59,6 +87,7 @@ export default function Hero({ t }: { t: any }) {
                 height={600}
                 className="rounded-[32px]"
               />
+             
 
             </div>
 
@@ -72,6 +101,7 @@ export default function Hero({ t }: { t: any }) {
             </div>
 
           </div>
+         
 
         </div>
 
