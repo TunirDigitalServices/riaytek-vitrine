@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
-import Navbar from "./components/Navbar";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,26 +16,23 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Riaytek",
   description:
-    "Riaytek is a your freindly health assistant, providing personalized health insights and recommendations based on your unique health data.",
+    "Riaytek is your friendly health assistant, providing personalized health insights and recommendations based on your unique health data.",
 };
 
-export default async function RootLayout({
-   children,
-  params,
+export default function RootLayout({
+  children,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
   return (
     <html
       lang="en"
-      dir={locale === "ar" ? "rtl" : "ltr"}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-      <Navbar />
-        {children}
+      <body className="min-h-screen flex flex-col bg-white text-black">
+       
+        <main className="flex-1">{children}</main>
       </body>
     </html>
   );

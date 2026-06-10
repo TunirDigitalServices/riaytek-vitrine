@@ -20,12 +20,13 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  
   const locale = pathname.split("/")[1] || "en";
-  const t = (translations[locale as keyof typeof translations] ?? translations.en) as typeof translations.en;
-  const navClass =
-    scrolled
-      ? "bg-white/70 dark:bg-black/60 backdrop-blur-md shadow-md"
-      : "bg-white dark:bg-black";
+  const t = (translations[locale as keyof typeof translations] ??
+    translations.en) as typeof translations.en;
+  const navClass = scrolled
+    ? "bg-white/70 dark:bg-black/60 backdrop-blur-md shadow-md"
+    : "bg-white dark:bg-black";
 
   const links: Array<{ label: keyof typeof translations.en; href: string }> = [
     { label: "home", href: "#" },
@@ -38,7 +39,6 @@ export default function Navbar() {
       className={`fixed top-0 w-full z-50 border-b border-zinc-200 dark:border-zinc-700 transition-all ${navClass}`}
     >
       <nav className="flex items-center justify-between px-6 py-4">
-
         {/* Logo */}
         <motion.div
           initial={{ opacity: 0, x: -10 }}
@@ -71,12 +71,17 @@ export default function Navbar() {
 
         {/* Right actions */}
         <div className="hidden md:flex items-center gap-4 text-xs">
-
           {/* Language */}
           <div className="flex gap-2">
-            <Link href={`/en/${pathWithoutLocale}`} className="hover:underline">EN</Link>
-            <Link href={`/fr/${pathWithoutLocale}`} className="hover:underline">FR</Link>
-            <Link href={`/ar/${pathWithoutLocale}`} className="hover:underline">AR</Link>
+            <Link href={`/en/${pathWithoutLocale}`} className="hover:underline">
+              EN
+            </Link>
+            <Link href={`/fr/${pathWithoutLocale}`} className="hover:underline">
+              FR
+            </Link>
+            <Link href={`/ar/${pathWithoutLocale}`} className="hover:underline">
+              AR
+            </Link>
           </div>
 
           {/* Dark mode (UI only placeholder) */}
@@ -90,9 +95,15 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           className="md:hidden flex flex-col gap-1"
         >
-          <span className={`h-0.5 w-6 bg-black dark:bg-white transition ${open ? "rotate-45 translate-y-1.5" : ""}`} />
-          <span className={`h-0.5 w-6 bg-black dark:bg-white transition ${open ? "opacity-0" : ""}`} />
-          <span className={`h-0.5 w-6 bg-black dark:bg-white transition ${open ? "-rotate-45 -translate-y-1.5" : ""}`} />
+          <span
+            className={`h-0.5 w-6 bg-black dark:bg-white transition ${open ? "rotate-45 translate-y-1.5" : ""}`}
+          />
+          <span
+            className={`h-0.5 w-6 bg-black dark:bg-white transition ${open ? "opacity-0" : ""}`}
+          />
+          <span
+            className={`h-0.5 w-6 bg-black dark:bg-white transition ${open ? "-rotate-45 -translate-y-1.5" : ""}`}
+          />
         </button>
       </nav>
 
@@ -106,7 +117,6 @@ export default function Navbar() {
             className="md:hidden overflow-hidden border-t border-zinc-200 dark:border-zinc-700"
           >
             <div className="flex flex-col px-6 py-4 gap-4 text-sm">
-
               {links.map((l) => (
                 <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>
                   {t[l.label]}
