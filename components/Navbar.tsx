@@ -20,7 +20,7 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  
+
   const locale = pathname.split("/")[1] || "en";
   const t = (translations[locale as keyof typeof translations] ??
     translations.en) as typeof translations.en;
@@ -86,6 +86,7 @@ export default function Navbar() {
 
           {/* Dark mode (UI only placeholder) */}
           <button className="px-3 py-1 border rounded-md text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800 transition">
+            {" "}
             🌙
           </button>
         </div>

@@ -1,3 +1,4 @@
+import Hero from "@/components/Hero";
 import { translations } from "@/lib/translations";
 
 export default async function Page({
@@ -12,44 +13,16 @@ export default async function Page({
     translations.en;
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-zinc-900">
+    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-zinc-900 pt-30" >
 
       {/* HERO */}
-      <section className="container mx-auto px-6 py-28 text-center">
-        
-        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-green-100 text-green-700 text-sm mb-6">
-          💚 Your daily health companion
-        </div>
-
-        <h1 className="text-5xl md:text-6xl font-extrabold text-green-600 tracking-tight">
-          Riaytek
-        </h1>
-
-        <h2 className="mt-6 text-3xl md:text-4xl font-bold max-w-2xl mx-auto leading-tight">
-          {t.title}
-        </h2>
-
-        <p className="mt-6 text-lg text-gray-600 max-w-xl mx-auto">
-          {t.subtitle}
-        </p>
-
-        {/* CTA */}
-        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-          <button className="bg-green-600 text-white px-8 py-4 rounded-xl hover:bg-green-700 transition shadow-lg hover:scale-105">
-            {t.download}
-          </button>
-
-          <button className="px-8 py-4 rounded-xl border border-gray-300 hover:bg-gray-100 transition">
-            Learn More
-          </button>
-        </div>
-      </section>
+      <Hero t={t} />
 
       {/* FEATURES */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white" id="features">
         <div className="container mx-auto px-6">
 
-          <h3 className="text-center text-3xl font-bold mb-14">
+          <h3 className="text-center text-3xl font-bold mb-14 text-[#053769]">
             {t.features}
           </h3>
 
@@ -84,7 +57,7 @@ export default async function Page({
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50" id="how-it-works">
         <div className="container mx-auto px-6 text-center">
 
           <h3 className="text-3xl font-bold mb-14">
@@ -116,17 +89,17 @@ export default async function Page({
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-24 text-center bg-green-600 text-white">
+      <section className="py-24 text-center bg-[#053769] text-white" id="final-cta">
 
         <h3 className="text-3xl font-bold">
           Start taking care of your health today
         </h3>
 
-        <p className="mt-4 text-green-100">
+        <p className="mt-4 text-[#08b096]">
           Join Riaytek and build better habits effortlessly
         </p>
 
-        <button className="mt-8 bg-white text-green-600 px-8 py-4 rounded-xl font-bold hover:scale-105 transition">
+        <button className="mt-8 bg-white text-[#053769] px-8 py-4 rounded-xl font-bold hover:scale-105 transition">
           Download Now
         </button>
 
